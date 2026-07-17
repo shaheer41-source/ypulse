@@ -1,1 +1,230 @@
-<!DOCTYPE html><html><head><title>Sign Up</title><style>body{font-family:Arial;display:flex;justify-content:center;align-items:center;height:100vh;background:#1e3a8a}.c{background:#fff;padding:30px;border-radius:10px;width:340px}input{width:100%;padding:10px;margin:8px 0}button{width:100%;padding:10px}.a{text-align:center}</style></head><body><div class=c><h2>Create Account</h2><input placeholder="Full Name"><input placeholder="Email"><input type=password placeholder="Password"><input type=password placeholder="Confirm Password"><button>Create Account</button><p class=a><a href="login.html">Login</a> | <a href="index.html">Home</a></p></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>YMAX | Sign Up</title>
+
+<meta name="description" content="Create your YMAX account">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+.auth-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1d4ed8);
+    padding:40px 20px;
+}
+
+.auth-card{
+    width:100%;
+    max-width:500px;
+    background:#1e293b;
+    border-radius:16px;
+    padding:40px;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+.auth-card h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.auth-card p{
+    text-align:center;
+    color:#cbd5e1;
+    margin-bottom:30px;
+}
+
+.auth-card label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.auth-card input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    margin-bottom:20px;
+    font-size:16px;
+}
+
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:25px;
+    color:#cbd5e1;
+}
+
+.checkbox input{
+    width:auto;
+    margin:0;
+}
+
+.signup-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    background:#38bdf8;
+    color:#0f172a;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.signup-btn:hover{
+    background:#ffffff;
+}
+
+.google-btn{
+    display:block;
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    border:2px solid #38bdf8;
+    border-radius:8px;
+    color:white;
+    text-decoration:none;
+    text-align:center;
+}
+
+.google-btn:hover{
+    background:#38bdf8;
+    color:#0f172a;
+}
+
+.bottom-link{
+    text-align:center;
+    margin-top:25px;
+}
+
+.bottom-link a{
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+.back-home{
+    text-align:center;
+    margin-top:15px;
+}
+
+.back-home a{
+    color:#94a3b8;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="auth-page">
+
+<div class="auth-card">
+
+<h1>Create Your Account</h1>
+
+<p>Join YMAX and start your journey today.</p>
+
+<form>
+
+<label>Full Name</label>
+
+<input
+type="text"
+placeholder="Enter your full name"
+required>
+
+<label>Email Address</label>
+
+<input
+type="email"
+placeholder="Enter your email"
+required>
+
+<label>Password</label>
+
+<input
+type="password"
+placeholder="Create a password"
+required>
+
+<label>Confirm Password</label>
+
+<input
+type="password"
+placeholder="Confirm your password"
+required>
+
+<div class="checkbox">
+
+<input type="checkbox" required>
+
+<span>
+
+I agree to the
+<a href="#">Terms & Conditions</a>
+
+and
+
+<a href="#">Privacy Policy</a>
+
+</span>
+
+</div>
+
+<button class="signup-btn">
+
+Create Account
+
+</button>
+
+</form>
+
+<a href="#" class="google-btn">
+
+Continue with Google
+
+</a>
+
+<div class="bottom-link">
+
+Already have an account?
+
+<a href="login.html">
+
+Login
+
+</a>
+
+</div>
+
+<div class="back-home">
+
+<a href="index.html">
+
+← Back to Home
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
