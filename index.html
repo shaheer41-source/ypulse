@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Startup</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Inter,sans-serif;
+background:#0f172a;
+color:white;
+}
+
+header{
+padding:25px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+}
+
+nav a{
+color:#cbd5e1;
+margin-left:25px;
+text-decoration:none;
+}
+
+.hero{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px;
+}
+
+.hero h1{
+font-size:60px;
+max-width:850px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+max-width:700px;
+color:#cbd5e1;
+margin-bottom:35px;
+line-height:1.6;
+}
+
+.button{
+background:#3b82f6;
+color:white;
+padding:15px 35px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.button:hover{
+background:#2563eb;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+padding:80px 8%;
+}
+
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:15px;
+}
+
+.card h3{
+margin-bottom:15px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#94a3b8;
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:40px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">YOURLOGO</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Features</a>
+<a href="#">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Launch your next big idea.</h1>
+
+<p>
+A clean, fast, and modern landing page for your startup,
+product, SaaS, or portfolio.
+</p>
+
+<a href="#" class="button">
+Get Started
+</a>
+
+</section>
+
+<section class="features">
+
+<div class="card">
+<h3>⚡ Fast</h3>
+<p>Loads instantly with no frameworks.</p>
+</div>
+
+<div class="card">
+<h3>📱 Responsive</h3>
+<p>Looks great on desktop, tablet and mobile.</p>
+</div>
+
+<div class="card">
+<h3>🚀 Easy Hosting</h3>
+<p>Deploy free on GitHub Pages, Netlify or Cloudflare Pages.</p>
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Your Startup. All rights reserved.
+
+</footer>
+
+</body>
+</html>
