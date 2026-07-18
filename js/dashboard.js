@@ -8,52 +8,35 @@ import {
 document.addEventListener("DOMContentLoaded", () => {
 
     const logoutBtn = document.getElementById("logoutBtn");
-    const userEmail = document.getElementById("userEmail");
-    const userName = document.getElementById("userName");
+
+    console.log("Dashboard loaded");
+    console.log("Logout button:", logoutBtn);
 
     onAuthStateChanged(auth, (user) => {
+        console.log("Current user:", user);
 
         if (!user) {
             window.location.href = "login.html";
             return;
         }
 
-        if (userEmail) {
-            userEmail.textContent = user.email;
-        }
+        document.getElementById("userEmail").textContent = user.email;
+    });
 
-        if (userName) {
-            userName.textContent = user.displayName || "User";
+    logoutBtn.addEventListener("click", async () => {
+
+        console.log("Logout button clicked");
+
+        try {
+            await signOut(auth);
+            console.log("User signed out");
+            alert("Logged out successfully");
+            window.location.href = "login.html";
+        } catch (error) {
+            console.error("Logout error:", error);
+            alert(error.message);
         }
 
     });
-
-    if (logoutBtn) {
-
-        logoutBtn.addEventListener("click", async () => {
-
-            try {
-
-                await signOut(auth);
-
-                alert("Logged out successfully.");
-
-                window.location.href = "login.html";
-
-            } catch (error) {
-
-                console.error(error);
-
-                alert(error.message);
-
-            }
-
-        });
-
-    } else {
-
-        console.error("Logout button not found.");
-
-    }
 
 });
