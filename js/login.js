@@ -1,38 +1,42 @@
-
 import { auth } from "./firebase.js";
 
 import {
     signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-const loginForm = document.getElementById("loginForm");
+document.addEventListener("DOMContentLoaded", () => {
 
-loginForm.addEventListener("submit", async (e) => {
+    const loginForm = document.getElementById("loginForm");
 
-    e.preventDefault();
-
-    const email = document.getElementById("email").value;
-
-    const password = document.getElementById("password").value;
-
-    try {
-
-        await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
-
-        alert("Login Successful!");
-
-        window.location.href = "dashboard.html";
-
+    if (!loginForm) {
+        console.error("loginForm not found");
+        return;
     }
 
-    catch (error) {
+    loginForm.addEventListener("submit", async (e) => {
 
-        alert(error.message);
+        e.preventDefault();
 
-    }
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+
+        try {
+
+            const userCredential =
+                await signInWithEmailAndPassword(auth, email, password);
+
+            console.log("Logged in:", userCredential.user);
+
+            window.location.href = "dashboard.html";
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(error.message);
+
+        }
+
+    });
 
 });
