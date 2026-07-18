@@ -1,31 +1,31 @@
 // YMAX JavaScript
 
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("Welcome to YMAX");
+document.addEventListener("DOMContentLoaded", () => {
 
-    // Highlight current navigation link
+    // Highlight active navigation
     const currentPage = window.location.pathname.split("/").pop();
 
-    const links = document.querySelectorAll("nav a");
-
-    links.forEach(link => {
-        const href = link.getAttribute("href");
-
-        if (href === currentPage) {
+    document.querySelectorAll("nav a").forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
             link.classList.add("active");
         }
     });
 
-    // Contact form (demo)
-    const form = document.querySelector("form");
+    // Contact form only
+    const contactForm = document.getElementById("contactForm");
 
-    if (form) {
-        form.addEventListener("submit", function (e) {
+    if (contactForm) {
+
+        contactForm.addEventListener("submit", function(e){
+
             e.preventDefault();
 
             alert("Thank you! Your message has been received.");
 
-            form.reset();
+            contactForm.reset();
+
         });
+
     }
+
 });
