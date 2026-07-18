@@ -1,59 +1,77 @@
+import { auth, db } from "./firebase.js";
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YMAX Dashboard</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
+import {
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-<body>
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-<header>
-<div class="container">
-<h1>YMAX Dashboard</h1>
-</div>
+document.addEventListener("DOMContentLoaded", () => {
 
-  <h2>Welcome to YMAX</h2>
+    const emailElement = document.getElementById("userEmail");
+    const nameElement = document.getElementById("userName");
+    const logoutBtn = document.getElementById("logoutBtn");
 
-<p>
-Logged in as:
-<strong id="userEmail"></strong>
-</p>
+    onAuthStateChanged(auth, async (user) => {
 
-<button id="logoutBtn" class="primary-btn">
-Logout
-</button>
-  
-</header>
+        if (!user) {
+            console.log("No user is logged in.");
+            window.location.href = "login.html";
+            return;
+        }
 
+        console.log("Logged in:", user.email);
 
-  
-<section class="hero">
+        if (emailElement) {
+            emailElement.textContent = user.email;
+        }
 
-<div class="container">
+        if (nameElement) {
+            try {
 
-<h2>Welcome to YMAX 🎉</h2>
+                const docRef = doc(db, "users", user.uid);
+                const docSnap = await getDoc(docRef);
 
-<p>
+                if (docSnap.exists()) {
+                    nameElement.textContent = docSnap.data().name;
+                } else {
+                    nameElement.textContent = "User";
+                }
 
-You have successfully logged in.
+            } catch (error) {
+                console.error("Error loading profile:", error);
+                nameElement.textContent = "User";
+            }
+        }
 
-</p>
+    });
 
-<a class="primary-btn" href="index.html">
+    if (logoutBtn) {
 
-Back to Home
+        logoutBtn.addEventListener("click", async () => {
 
-</a>
+            try {
 
-</div>
+                await signOut(auth);
 
-</section>
+                alert("You have been logged out.");
 
- <script type="module" src="js/dashboard.js"></script> 
+                window.location.href = "login.html";
 
-</body>
+            } catch (error) {
 
-</html>
+                console.error(error);
+
+                alert(error.message);
+
+            }
+
+        });
+
+    }
+
+});
