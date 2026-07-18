@@ -1,77 +1,16 @@
-import { auth, db } from "./firebase.js";
+<h2>Welcome, <span id="userName">Loading...</span> 👋</h2>
 
-import {
-    onAuthStateChanged,
-    signOut
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+<p>
+Logged in as:
+<strong id="userEmail">Loading...</strong>
+</p>
 
-import {
-    doc,
-    getDoc
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+<button id="logoutBtn" class="primary-btn">
+Logout
+</button>
 
-document.addEventListener("DOMContentLoaded", () => {
+<br><br>
 
-    const emailElement = document.getElementById("userEmail");
-    const nameElement = document.getElementById("userName");
-    const logoutBtn = document.getElementById("logoutBtn");
-
-    onAuthStateChanged(auth, async (user) => {
-
-        if (!user) {
-            console.log("No user is logged in.");
-            window.location.href = "login.html";
-            return;
-        }
-
-        console.log("Logged in:", user.email);
-
-        if (emailElement) {
-            emailElement.textContent = user.email;
-        }
-
-        if (nameElement) {
-            try {
-
-                const docRef = doc(db, "users", user.uid);
-                const docSnap = await getDoc(docRef);
-
-                if (docSnap.exists()) {
-                    nameElement.textContent = docSnap.data().name;
-                } else {
-                    nameElement.textContent = "User";
-                }
-
-            } catch (error) {
-                console.error("Error loading profile:", error);
-                nameElement.textContent = "User";
-            }
-        }
-
-    });
-
-    if (logoutBtn) {
-
-        logoutBtn.addEventListener("click", async () => {
-
-            try {
-
-                await signOut(auth);
-
-                alert("You have been logged out.");
-
-                window.location.href = "login.html";
-
-            } catch (error) {
-
-                console.error(error);
-
-                alert(error.message);
-
-            }
-
-        });
-
-    }
-
-});
+<a class="primary-btn" href="index.html">
+Back to Home
+</a>
