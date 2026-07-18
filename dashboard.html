@@ -1,37 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>YMAX Dashboard</title>
 
 <link rel="stylesheet" href="css/style.css">
 
-<style>
-body {
-    background: #0f172a;
-    color: white;
-    font-family: Arial, sans-serif;
-}
+</head>
 
-.primary-btn {
-    background: #38bdf8;
-    color: #0f172a;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-}
-</style>
+<body>
 
-<h2>Welcome, <span id="userName">Loading...</span> 👋</h2>
+<header>
+
+<div class="container">
+
+<div class="logo">
+<a href="index.html">YMAX</a>
+</div>
+
+<nav>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="pulse.html">Pulse</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><button id="logoutBtn" class="signup-btn">Logout</button></li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+<h1>Welcome, <span id="userName">User</span> 👋</h1>
 
 <p>
-Logged in as:
-<strong id="userEmail">Loading...</strong>
-</p>
 
-<button id="logoutBtn" class="primary-btn">
-Logout
-</button>
+Logged in as
 
 <br><br>
 
-<a class="primary-btn" href="index.html">
-Back to Home
+<strong id="userEmail">Loading...</strong>
+
+</p>
+
+<div class="buttons">
+
+<a href="pulse.html" class="primary-btn">
+
+Go to Pulse
+
 </a>
+
+<a href="contact.html" class="secondary-btn">
+
+Contact Us
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<script type="module" src="js/dashboard.js"></script>
+
+</body>
+
+</html>
