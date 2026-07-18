@@ -1,27 +1,16 @@
-import { auth } from "./firebase.js";
+<h2>Welcome, <span id="userName">Loading...</span> 👋</h2>
 
-import {
-    onAuthStateChanged,
-    signOut
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+<p>
+Logged in as:
+<strong id="userEmail">Loading...</strong>
+</p>
 
-onAuthStateChanged(auth, (user) => {
+<button id="logoutBtn" class="primary-btn">
+Logout
+</button>
 
-    if (!user) {
+<br><br>
 
-        window.location.href = "login.html";
-        return;
-
-    }
-
-    document.getElementById("userEmail").textContent = user.email;
-
-});
-
-document.getElementById("logoutBtn").addEventListener("click", async () => {
-
-    await signOut(auth);
-
-    window.location.href = "login.html";
-
-});
+<a class="primary-btn" href="index.html">
+Back to Home
+</a>
